@@ -34,8 +34,6 @@ public class Cafe {
     
 	@Override
 	public String toString() {
-		return "Cafe [nombre=" + nombre + ", precio=" + precio + "]";
+		return "Cafe nombre=" + nombre + ", precio=" + precio;
 	}
-	
-	
 }

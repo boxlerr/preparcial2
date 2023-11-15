@@ -56,8 +56,8 @@ public class Venta {
 	
 	@Override
 	public String toString() {
-        return "Venta [id=" + id + ", cafe=" + cafe.getNombre() + ", cantidad=" + cantidad
-                + ", tarjeta=" + tarjeta + ", total=" + calcularTotal() + "]";
+        return "\nVenta: " + id + " | cafe: " + cafe.getNombre() + " | cantidad: " + cantidad
+                + " | tarjeta de socio: " + tarjeta + "| total= " + calcularTotal();
     }
 	
 	
