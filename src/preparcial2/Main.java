@@ -9,8 +9,7 @@ class Main {
         EncargadoVenta empleado = new EncargadoVenta("Nombre", "123456", "admin", "admin123", "Caja 1");
 
         boolean inicioSesionExitoso = false;
-        int intentos = 3;  // Número máximo de intentos permitidos
-
+        int intentos = 3;  // intentos
         do {
             String usuario = JOptionPane.showInputDialog("Ingrese el nombre de usuario:");
             String contrasena = JOptionPane.showInputDialog("Ingrese la contraseña:");
@@ -20,8 +19,8 @@ class Main {
             if (inicioSesionExitoso) {
                 JOptionPane.showMessageDialog(null, "Inicio de sesión exitoso.");
                 int opcion;
-                do {
-                    opcion = mostrarMenu();
+				do {
+                   opcion = Cajero.mostrarMenu();
 
                     switch (opcion) {
                         case 1:
@@ -43,7 +42,7 @@ class Main {
                             ventasDelDia.eliminarVenta();
                             break;
                         case 7:
-                            finalizarDia(ventasDelDia);
+                            ventasDelDia.finalizarDia(ventasDelDia);
                             break;
                         default:
                             JOptionPane.showMessageDialog(null, "Opción no válida. Por favor, elija una opción del menú.");
@@ -59,16 +58,5 @@ class Main {
         if (!inicioSesionExitoso) {
             JOptionPane.showMessageDialog(null, "Número máximo de intentos alcanzado. La aplicación se cerrará.");
         }
-    }
-
-    private static int mostrarMenu() {
-        String[] opciones = {"Agregar Venta", "Mostrar Todas las Ventas", "Mostrar Café Más Vendido", "Mostrar Recaudación Total", "Mostrar Ventas con Descuento", "Eliminar Venta", "Finalizar Día"};
-        return JOptionPane.showOptionDialog(null, "Seleccione una opción:", "Menú", 0, JOptionPane.INFORMATION_MESSAGE, null, opciones, opciones[0]) + 1;
-    }
-
-
-    private static void finalizarDia(VentasDelDia ventasDelDia) {
-        // Implementa la lógica para finalizar el día
-        ventasDelDia.finalizarDia();
-    }
+    }    
 }

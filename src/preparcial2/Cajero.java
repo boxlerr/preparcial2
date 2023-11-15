@@ -1,22 +1,12 @@
 package preparcial2;
 
-public class Cajero extends Empleado{
+import javax.swing.JOptionPane;
 
-	//+MostrarVentas():void;
-	//-Mostrar que tipo de cafe se vendio mas.
-	//-Mostrar recaudacion total.
-	//-Mostrar las ventas con descuentos.
-	
-	private double sueldo;
-
-	public Cajero(String nombre, String dni, double sueldo) {
-		super(nombre, dni);
-		this.sueldo = sueldo;
-	}
+public class Cajero {
 	 
-	 @Override
-	 public void Login(String us, String pass) {
-			String [] menu = {"Ventas","Cafe mas vendido","Recaudacion del dia","Descuentos"};
-		}
+	 static int mostrarMenu() {
+	        String[] opciones = {"Agregar Venta", "Mostrar Todas las Ventas", "Mostrar Café Más Vendido", "Mostrar Recaudación Total", "Mostrar Ventas con Descuento", "Eliminar Venta", "Finalizar Día"};
+	        return JOptionPane.showOptionDialog(null, "Seleccione una opción:", "Menú", 0, JOptionPane.INFORMATION_MESSAGE, null, opciones, opciones[0]) + 1;
+	    }
 	
 }

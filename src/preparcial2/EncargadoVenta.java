@@ -23,13 +23,15 @@ public class EncargadoVenta extends Empleado {
         String[] nombresCafe = {"Latte", "Flat White", "Lagrima", "Expresso"};
         double[] precios = {1.50, 2.50, 1.30, 1.00};
 
-        int opcion = JOptionPane.showOptionDialog(null, ventas, this.getCaja(), 0, 0, null, nombresCafe, nombresCafe[0]);
+        int opcion = JOptionPane.showOptionDialog(null, this.getCaja(), "Seleccione un café", 0, 0, null, nombresCafe, nombresCafe[0]);
 
         // Verificar si se seleccionó un café (opcion != -1)
         if (opcion != -1) {
+            boolean esSocio = JOptionPane.showConfirmDialog(null, "¿Es socio?", "Descuento de socio", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
+
             // Crear una instancia de Venta y agregarla a la lista
             Cafe cafeSeleccionado = new Cafe(nombresCafe[opcion], precios[opcion]);
-            Venta nuevaVenta = new Venta(cafeSeleccionado, ventas.getVentas().size() + 1, 1, false);
+            Venta nuevaVenta = new Venta(cafeSeleccionado, ventas.getVentas().size() + 1, 1, esSocio);
             ventas.agregarVenta(nuevaVenta);
         }
     }

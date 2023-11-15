@@ -56,11 +56,12 @@ public class VentasDelDia {
     }
 
     public void mostrarTodasLasVentas() {
-        System.out.println("Ventas del día " + dia + ":");
-        for (Venta venta : ventas) {
-            System.out.println(venta);
-        }
-    }
+    	 StringBuilder stringBuilder = new StringBuilder();
+    	    for (Venta venta : ventas) {
+    	        stringBuilder.append(venta).append("\n");
+    	    }
+    	    JOptionPane.showMessageDialog(null, "Ventas del día " + dia + ":\n" + stringBuilder.toString());
+    	}
 
     public String determinarCafeMasVendido() {
         Map<String, Integer> contadorCafes = new HashMap<>(); // haciendo uso de hashmap por primera vez
@@ -120,12 +121,21 @@ public class VentasDelDia {
         }
     }
     public void mostrarVentasConDescuento() {
-        System.out.println("Ventas con descuento del día " + dia + ":");
+    	StringBuilder stringBuilder = new StringBuilder();
         for (Venta venta : ventas) {
             if (venta.isTarjeta()) {
-                System.out.println(venta);
+                stringBuilder.append(venta).append("\n");
             }
         }
+        if (stringBuilder.length() > 0) {
+            JOptionPane.showMessageDialog(null, "Ventas con descuento del día " + dia + ":\n" + stringBuilder.toString());
+        } else {
+            JOptionPane.showMessageDialog(null, "No hay ventas con descuento del día " + dia + ".");
+        }
+    }
+    public void finalizarDia(VentasDelDia ventasDelDia) {
+    	JOptionPane.showMessageDialog(null, "Gracias, a sido un gran dia! \nSuerte mañana!");
+    	ventasDelDia.finalizarDia();
     }
 
     @Override
