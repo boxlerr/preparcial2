@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.HashMap;
+import javax.swing.JOptionPane;
 
 public class VentasDelDia {
 
@@ -94,6 +95,30 @@ public class VentasDelDia {
         return recaudacionTotal;
     }
 
+    public void eliminarVenta() {
+        String idVentaStr = JOptionPane.showInputDialog("Ingrese el ID de la venta que desea eliminar:");
+        
+        try {
+            int idVenta = Integer.parseInt(idVentaStr);
+            boolean eliminada = false;
+
+            for (Venta venta : ventas) {
+                if (venta.getId() == idVenta) {
+                    ventas.remove(venta);
+                    eliminada = true;
+                    break;
+                }
+            }
+
+            if (eliminada) {
+                JOptionPane.showMessageDialog(null, "Venta eliminada correctamente.");
+            } else {
+                JOptionPane.showMessageDialog(null, "No se encontró ninguna venta con el ID especificado.");
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Ingrese un ID válido (número entero).");
+        }
+    }
     public void mostrarVentasConDescuento() {
         System.out.println("Ventas con descuento del día " + dia + ":");
         for (Venta venta : ventas) {

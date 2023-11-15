@@ -40,7 +40,7 @@ class Main {
                             ventasDelDia.mostrarVentasConDescuento();
                             break;
                         case 6:
-                            eliminarVenta(ventasDelDia);
+                            ventasDelDia.eliminarVenta();
                             break;
                         case 7:
                             finalizarDia(ventasDelDia);
@@ -66,10 +66,6 @@ class Main {
         return JOptionPane.showOptionDialog(null, "Seleccione una opción:", "Menú", 0, JOptionPane.INFORMATION_MESSAGE, null, opciones, opciones[0]) + 1;
     }
 
-    private static void eliminarVenta(VentasDelDia ventasDelDia) {
-        // Implementa la lógica para eliminar una venta
-        // Puedes pedir al usuario el ID de la venta que desea eliminar
-    }
 
     private static void finalizarDia(VentasDelDia ventasDelDia) {
         // Implementa la lógica para finalizar el día
