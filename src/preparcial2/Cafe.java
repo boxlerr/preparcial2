@@ -25,12 +25,11 @@ public class Cafe {
 	}
 
     public double calcularPrecioFinal(boolean tarjeta) {
-        double precioFinal = precio;
         if (tarjeta) {
             // Aplicar descuento del 15%
-            precioFinal = precio * 0.85;
+            precio = precio * 0.85;
         }
-        return precioFinal;
+        return precio;
     }
     
 	@Override

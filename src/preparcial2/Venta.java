@@ -49,16 +49,16 @@ public class Venta {
 		this.tarjeta = tarjeta;
 	}
 
+	public double calcularTotal() {
+        return cafe.calcularPrecioFinal(tarjeta) * cantidad;
+    }
 
 	
 	@Override
 	public String toString() {
-		return "Venta [cafe=" + cafe + ", id=" + id + ", cantidad=" + cantidad + ", tarjeta=" + tarjeta + "]";
-	}
-	
-	
-	
-	
+        return "Venta [id=" + id + ", cafe=" + cafe.getNombre() + ", cantidad=" + cantidad
+                + ", tarjeta=" + tarjeta + ", total=" + calcularTotal() + "]";
+    }
 	
 	
 }
